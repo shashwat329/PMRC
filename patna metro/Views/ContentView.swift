@@ -13,7 +13,7 @@ struct ContentView: View {
             TabView{
                 HomeView()
                     .tabItem{
-                        Label("home",systemImage:"house.fill")
+                        Label("Home",systemImage:"house.fill")
                     }
                 TransactionView()
                     .tabItem{

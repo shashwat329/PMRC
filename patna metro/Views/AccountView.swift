@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State private var name: String = "Kamya Kushwaha"
     var body: some View {
-        Text("this is account section")
+        VStack{
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.blue)
+                .frame(width: 350,height: 250)
+                .overlay{
+                    VStack{
+                        Text("Kumar shashwat".capitalized)
+                            .font(.headline)
+                            .foregroundColor(Color.white)
+                        Text("XXXXXXXXXXX")
+                            .font(.largeTitle)
+                    }
+                    
+                }
+                .padding()
+            Text("Name: \(name)")
+            Text("Email: \(name)@gmail.com")
+            Spacer()
+        }
     }
 }
 
