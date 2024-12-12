@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var name: String = "Kamya Kushwaha"
+    @State private var name: String = "Kumar Shashwat"
     var body: some View {
         VStack{
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue)
-                .frame(width: 350,height: 250)
+                .fill(Color(hex: "#1eacfa"))
+                .frame(width: 350,height: 216)
                 .overlay{
                     VStack{
                         Text("Kumar shashwat".capitalized)

@@ -12,22 +12,14 @@ struct HomeView: View {
         ZStack{
             VStack{
                 HStack{
-                    Circle()
-                        .fill()
-                        .frame(width: 60)
-                        .overlay{
-                            Text("s".capitalized)
-                                .font(.largeTitle)
-                                .foregroundColor(.gray)
-                        }
-                    Spacer()
+
                     Text("Welcome to Patna Metro")
                         .font(.title)
-                    Spacer()
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.blue)
+                .background(Color(hex: "#1eacfa"))
+//                .background(Color(hex: "#96daff"))
                 Spacer()
             }
         }
