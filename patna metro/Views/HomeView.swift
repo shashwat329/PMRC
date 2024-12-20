@@ -12,14 +12,45 @@ struct HomeView: View {
         ZStack{
             VStack{
                 HStack{
-
-                    Text("Welcome to Patna Metro")
+                    Text("Patna Metro")
                         .font(.title)
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color(hex: "#1eacfa"))
-//                .background(Color(hex: "#96daff"))
+                HStack{
+                    Image("HomepageBg")
+                        .resizable()
+                        .aspectRatio(CGFloat(6) / CGFloat(4), contentMode: .fit)
+                        .overlay{
+                            Color.black.opacity(0.3)
+                            Text("welcome to Patna metro".capitalized)
+                                .foregroundStyle(.white)
+                                .font(.title)
+                                .bold()
+                        }
+                }
+                HStack{
+                    VStack{
+                        Text("Find your route")
+                            .font(.headline)
+                        Text("Start, end and time")
+                            .font(.footnote)
+                        Button("click Me"){
+                            print("button pressed")
+                        }
+                        .padding(.horizontal,30)
+                        .padding(.vertical,4)
+                        .background(Color(hex: "#1eacfa"))
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                            
+                    }
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(hex: "#1eacfa"))
+                        .frame(width: 150, height: 100)
+                }.padding()
                 Spacer()
             }
         }
