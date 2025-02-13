@@ -9,20 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            NavigationView {
+       
+            VStack {
                 TabView(){
                     HomeView()
                         .tabItem{
                             Label("Home",systemImage:"house.fill")
                         }
-                    TransactionView()
+                   
+                        TransactionView()
                         .tabItem{
                             Label("top up",systemImage: "indianrupeesign.square.fill")
                         }
-                    EnquiryView()
+                    
+                NavigationStack{
+                    ContactSupportView()
+                }
                         .tabItem{
-                            Label("Enquiry", systemImage: "questionmark.app.fill")
+                            Label("Support", systemImage: "questionmark.app.fill")
                         }
                     AccountView()
                         .tabItem{
@@ -32,7 +36,6 @@ struct ContentView: View {
                 .accentColor(Color(hex: "#1eacfa"))
             }
         }
-    }
 }
 
 #Preview {

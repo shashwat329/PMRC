@@ -10,14 +10,17 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         ZStack{
+            
             VStack{
                 HStack{
                     Text("Patna Metro")
                         .font(.title)
                 }
                 .padding()
+                
                 .frame(maxWidth: .infinity)
                 .background(Color(hex: "#1eacfa"))
+                ScrollView{
                 HStack{
                     Image("HomepageBg")
                         .resizable()
@@ -30,6 +33,32 @@ struct HomeView: View {
                                 .bold()
                         }
                 }
+               
+            
+                HStack{
+                    VStack{
+                        Text("Find your route")
+                            .font(.headline)
+                        Text("Start, end and time")
+                            .font(.footnote)
+                        Button("click Me"){
+                            print("button pressed")
+                        }
+                        .padding(.horizontal,30)
+                        .padding(.vertical,4)
+                        .background(Color(hex: "#1eacfa"))
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                            
+                    }
+                    
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(hex: "#1eacfa"))
+                        .frame(width: 150, height: 100)
+                }.padding(.horizontal)
+                    //add border
+                        .shadow(color: .gray,radius: 5)
                 HStack{
                     VStack{
                         Text("Find your route")
@@ -50,7 +79,53 @@ struct HomeView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color(hex: "#1eacfa"))
                         .frame(width: 150, height: 100)
-                }.padding()
+                }.padding(.horizontal)
+                    HStack{
+                        VStack{
+                            Text("Find your route")
+                                .font(.headline)
+                            Text("Start, end and time")
+                                .font(.footnote)
+                            Button("click Me"){
+                                print("button pressed")
+                            }
+                            .padding(.horizontal,30)
+                            .padding(.vertical,4)
+                            .background(Color(hex: "#1eacfa"))
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                                
+                        }
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(hex: "#1eacfa"))
+                            .frame(width: 150, height: 100)
+                    }.padding(.horizontal)
+                    HStack{
+                        VStack{
+                            Text("Find your route")
+                                .font(.headline)
+                            Text("Start, end and time")
+                                .font(.footnote)
+                            Button("click Me"){
+                                print("button pressed")
+                            }
+                            .padding(.horizontal,30)
+                            .padding(.vertical,4)
+                            .background(Color(hex: "#1eacfa"))
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                                
+                        }
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(hex: "#1eacfa"))
+                            .frame(width: 150, height: 100)
+                    }.padding(.horizontal)
+                }
+//                .border(Color.red,width: 3)
+                .padding(.top,-20)
+                
                 Spacer()
             }
         }
