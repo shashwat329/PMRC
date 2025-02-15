@@ -33,97 +33,12 @@ struct HomeView: View {
                                 .bold()
                         }
                 }
-               
-            
-                HStack{
-                    VStack{
-                        Text("Find your route")
-                            .font(.headline)
-                        Text("Start, end and time")
-                            .font(.footnote)
-                        Button("click Me"){
-                            print("button pressed")
-                        }
-                        .padding(.horizontal,30)
-                        .padding(.vertical,4)
-                        .background(Color(hex: "#1eacfa"))
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
-                            
+                    ForEach(MenuItems,id: \.self){ item in
+                        HomeViewRow(mainLine: item.mainLine, secondLine: item.secondLine,moduleID: item.moduleID)
                     }
-                    
-                    Spacer()
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#1eacfa"))
-                        .frame(width: 150, height: 100)
-                }.padding(.horizontal)
-                    //add border
-                        .shadow(color: .gray,radius: 5)
-                HStack{
-                    VStack{
-                        Text("Find your route")
-                            .font(.headline)
-                        Text("Start, end and time")
-                            .font(.footnote)
-                        Button("click Me"){
-                            print("button pressed")
-                        }
-                        .padding(.horizontal,30)
-                        .padding(.vertical,4)
-                        .background(Color(hex: "#1eacfa"))
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
-                            
-                    }
-                    Spacer()
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color(hex: "#1eacfa"))
-                        .frame(width: 150, height: 100)
-                }.padding(.horizontal)
-                    HStack{
-                        VStack{
-                            Text("Find your route")
-                                .font(.headline)
-                            Text("Start, end and time")
-                                .font(.footnote)
-                            Button("click Me"){
-                                print("button pressed")
-                            }
-                            .padding(.horizontal,30)
-                            .padding(.vertical,4)
-                            .background(Color(hex: "#1eacfa"))
-                            .foregroundStyle(.white)
-                            .clipShape(Capsule())
-                                
-                        }
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(hex: "#1eacfa"))
-                            .frame(width: 150, height: 100)
-                    }.padding(.horizontal)
-                    HStack{
-                        VStack{
-                            Text("Find your route")
-                                .font(.headline)
-                            Text("Start, end and time")
-                                .font(.footnote)
-                            Button("click Me"){
-                                print("button pressed")
-                            }
-                            .padding(.horizontal,30)
-                            .padding(.vertical,4)
-                            .background(Color(hex: "#1eacfa"))
-                            .foregroundStyle(.white)
-                            .clipShape(Capsule())
-                                
-                        }
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(hex: "#1eacfa"))
-                            .frame(width: 150, height: 100)
-                    }.padding(.horizontal)
+                    .padding(.horizontal)
+
                 }
-//                .border(Color.red,width: 3)
                 .padding(.top,-20)
                 
                 Spacer()

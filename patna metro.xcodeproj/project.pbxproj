@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6BE5C8E22D5F7973003CB652 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8E12D5F7973003CB652 /* FirebaseAnalytics */; };
+		6BE5C8E42D5F7973003CB652 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8E32D5F7973003CB652 /* FirebaseAppDistribution-Beta */; };
+		6BE5C8E62D5F7973003CB652 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8E52D5F7973003CB652 /* FirebaseAuth */; };
+		6BE5C8E82D5F7973003CB652 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8E72D5F7973003CB652 /* FirebaseDatabase */; };
+		6BE5C8EA2D5F7973003CB652 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8E92D5F7973003CB652 /* FirebaseFirestore */; };
+		6BE5C8EC2D5F7973003CB652 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6BE5C8EB2D5F7973003CB652 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6B5C69DB2D0845750033AC88 /* patna metro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "patna metro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +32,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BE5C8E22D5F7973003CB652 /* FirebaseAnalytics in Frameworks */,
+				6BE5C8E62D5F7973003CB652 /* FirebaseAuth in Frameworks */,
+				6BE5C8E82D5F7973003CB652 /* FirebaseDatabase in Frameworks */,
+				6BE5C8EA2D5F7973003CB652 /* FirebaseFirestore in Frameworks */,
+				6BE5C8E42D5F7973003CB652 /* FirebaseAppDistribution-Beta in Frameworks */,
+				6BE5C8EC2D5F7973003CB652 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,12 @@
 			);
 			name = "patna metro";
 			packageProductDependencies = (
+				6BE5C8E12D5F7973003CB652 /* FirebaseAnalytics */,
+				6BE5C8E32D5F7973003CB652 /* FirebaseAppDistribution-Beta */,
+				6BE5C8E52D5F7973003CB652 /* FirebaseAuth */,
+				6BE5C8E72D5F7973003CB652 /* FirebaseDatabase */,
+				6BE5C8E92D5F7973003CB652 /* FirebaseFirestore */,
+				6BE5C8EB2D5F7973003CB652 /* FirebaseStorage */,
 			);
 			productName = "patna metro";
 			productReference = 6B5C69DB2D0845750033AC88 /* patna metro.app */;
@@ -94,6 +115,9 @@
 			);
 			mainGroup = 6B5C69D22D0845750033AC88;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6B5C69DC2D0845750033AC88 /* Products */;
 			projectDirPath = "";
@@ -324,6 +348,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6BE5C8E12D5F7973003CB652 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		6BE5C8E32D5F7973003CB652 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+		6BE5C8E52D5F7973003CB652 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		6BE5C8E72D5F7973003CB652 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		6BE5C8E92D5F7973003CB652 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		6BE5C8EB2D5F7973003CB652 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BE5C8E02D5F7973003CB652 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B5C69D32D0845750033AC88 /* Project object */;
 }

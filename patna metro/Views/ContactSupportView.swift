@@ -69,8 +69,6 @@ struct ContactSupportView: View {
 
 
 #Preview {
-NavigationView{
-        ContactSupportView()
-    }
+    ContactSupportView()
         
 }
