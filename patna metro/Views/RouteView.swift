@@ -14,7 +14,7 @@ struct RouteView: View {
         HStack{
             VStack{
                 Button {
-                    print("this is route view")
+                    RouteSearchList()
                 } label: {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.gray.opacity(0.3))
