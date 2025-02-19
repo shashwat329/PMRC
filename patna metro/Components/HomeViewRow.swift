@@ -46,6 +46,8 @@ struct HomeViewRow: View {
                 MetroNavigationView()
             case 2:
                 MetroNavigationView()
+            case 3:
+                MetroNavigationView()
             default:
                 Text("Unknown View")
         }

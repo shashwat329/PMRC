@@ -6,8 +6,8 @@ struct MetroNavigationView: View {
     @State private var route: [String] = []
     @State private var showRouteView = false
     
-    @State private var showDropdown1 = false  // Controls source dropdown
-    @State private var showDropdown2 = false  // Controls destination dropdown
+    @State private var showDropdown1 = false
+    @State private var showDropdown2 = false 
     
     let metro = MetroNetwork()
     let stations: [String] = [
@@ -36,7 +36,9 @@ struct MetroNavigationView: View {
                 if let foundRoute = metro.findShortestPath(from: source, to: destination) {
                     route = foundRoute
                     showRouteView = true
-                } else {
+                    print(route)
+                }
+                else {
                     route = ["No route found"]
                 }
             }) {
@@ -52,8 +54,10 @@ struct MetroNavigationView: View {
             
         }
         .padding()
-        .sheet(isPresented: $showRouteView) {
-            RouteDetailView(source: $source, destination: $destination, route: route, showRouteView: $showRouteView)
+        Spacer()
+            .fullScreenCover(isPresented: $showRouteView) {
+            RouteDetailView(source: $source, destination: $destination, route: $route, showRouteView: $showRouteView)
+                
         }
     }
 }
@@ -79,11 +83,11 @@ struct SearchableTextField: View {
             TextField(title, text: $text, onEditingChanged: { isEditing in
                 if isEditing {
                     showDropdown = true
-                    otherDropdown = false // Close the other dropdown
+                    otherDropdown = false
                 }
             })
             .padding()
-            .background(Color.blue.opacity(0.1))
+            .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
             
             if showDropdown {
@@ -95,7 +99,7 @@ struct SearchableTextField: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .onTapGesture {
                                     text = option
-                                    showDropdown = false // Close dropdown after selection
+                                    showDropdown = false
                                 }
                         }
                     }
@@ -112,67 +116,82 @@ struct SearchableTextField: View {
 struct RouteDetailView: View {
     @Binding var source: String
     @Binding var destination: String
-    let route: [String]
+    @Binding var route: [String]
     @Binding var showRouteView: Bool
-    
+    @State private var count: Int = 1
     var interchangeCount: Int {
         route.filter { $0 == "Patna Junction" || $0 == "Khemni Chak" }.count
     }
-    
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                Button(action: { showRouteView = false }) {
-                    Image(systemName: "xmark")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                        .padding()
-                }
-            }
-            
-            Text("Route Details")
-                .font(.largeTitle.bold())
-                .foregroundColor(.blue)
-                .padding(.top, 20)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Source: \(source)")
-                    .font(.headline)
-                Text("Destination: \(destination)")
-                    .font(.headline)
-                Text("Number of Interchanges: \(interchangeCount)")
-                    .font(.headline)
-            }
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.blue.opacity(0.1))
-            .cornerRadius(10)
-            .padding(.horizontal)
-            
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(route, id: \..self) { station in
-                        HStack {
-                            Circle()
-                                .fill(Color.blue)
-                                .frame(width: 10, height: 10)
-                            Text(station)
-                                .font(.headline)
-                        }
+        VStack {
+                HStack {
+
+                    Button(action: { showRouteView = false }) {
+                        Image(systemName: "xmark")
+                            .font(.title)
+                            .foregroundColor(.blue)
+                            .padding(.horizontal)
                     }
+                    Text("Route Details")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.blue)
+                    Spacer()
+                   
+                }
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Source: \(source)")
+                        .font(.headline)
+                    Text("Destination: \(destination)")
+                        .font(.headline)
+                    Text("Number of Interchanges: \(interchangeCount)")
+                        .font(.headline)
                 }
                 .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(10)
+                .padding(.horizontal)
+                
+                ScrollView{
+                    VStack(alignment: .leading) {
+                        ForEach(route, id: \.self) { station in
+                            HStack {
+                                VStack {
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .fill(Color.blue)
+                                        .frame(width: 50, height: 50)
+                                        .overlay{
+                                            Text("\(count)")
+                                        }
+                                }
+                                VStack{
+                                    Text(station)
+                                        .font(.headline)
+                                    
+                                }
+                            }
+                        }.padding(.horizontal)
+                        
+                    }.padding(.vertical)
+                }
+               
+                .frame(maxWidth: .infinity, minHeight: 200,alignment: .leading)
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+                .padding()
+                
             }
-            .frame(maxWidth: .infinity, minHeight: 200)
-            .background(Color.blue.opacity(0.1))
-            .cornerRadius(10)
-            .padding()
-        }
+        
         .padding()
+        Spacer()
     }
+   
 }
 
+
+//MarkDown #Preview
+
 #Preview{
-    MetroNavigationView()
+//    MetroNavigationView()
+    RouteDetailView(source: .constant("abc"), destination: .constant("xyz"), route: .constant(["23","2ss","Ramkrishna Nagar","patna zoo","patna college"]), showRouteView: .constant(true) )
 }

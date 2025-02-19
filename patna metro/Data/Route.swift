@@ -6,8 +6,8 @@
 //
 struct MetroStation {
     let name: String
-    let corridors: [String] // "East-West" or "North-South"
-    let connections: [String] // Adjacent stations
+    let corridors: [String]
+    let connections: [String] 
 }
 
 class MetroNetwork {
