@@ -171,6 +171,7 @@ struct RouteDetailView: View {
                                 }
                             }
                         }.padding(.horizontal)
+                            
                         
                     }.padding(.vertical)
                 }
@@ -179,7 +180,6 @@ struct RouteDetailView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 .padding()
-                
             }
         
         .padding()
