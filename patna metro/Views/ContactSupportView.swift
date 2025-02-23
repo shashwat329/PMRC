@@ -53,9 +53,6 @@ struct ContactSupportView: View {
     }
     
     func submitFeedback() {
-        // Logic to handle feedback submission can go here
-        // For now, just show a thank-you alert
-        
         showAlert = true
         clearForm()
     }
