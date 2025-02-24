@@ -52,7 +52,7 @@ struct ContactSupportView: View {
             .navigationTitle("Contact & Support")
     }
     
-    func submitFeedback() {
+    func submitFeedback() { 
         showAlert = true
         clearForm()
     }
