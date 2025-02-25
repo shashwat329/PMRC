@@ -19,22 +19,9 @@
 		6B5C69DB2D0845750033AC88 /* patna metro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "patna metro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6B6355C72D6CBBBD00339DD9 /* Exceptions for "patna metro" folder in "patna metro" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"patna-metro-Info.plist",
-			);
-			target = 6B5C69DA2D0845750033AC88 /* patna metro */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6B5C69DD2D0845750033AC88 /* patna metro */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6B6355C72D6CBBBD00339DD9 /* Exceptions for "patna metro" folder in "patna metro" target */,
-			);
 			path = "patna metro";
 			sourceTree = "<group>";
 		};

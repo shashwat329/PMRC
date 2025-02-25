@@ -13,15 +13,6 @@ struct TransactionView: View {
             RoundedRectangle(cornerRadius: 0)
                 .fill(Color.blue)
                 .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
-                .overlay(
-                    Text("Ticket")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .padding(.leading, 16),
-                    alignment: .bottom
-                )
-            
-
             Spacer()
         }
         .ignoresSafeArea(edges: .top)

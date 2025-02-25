@@ -12,14 +12,6 @@ struct HomeView: View {
         ZStack{
             
             VStack{
-                HStack{
-                    Text("Patna Metro")
-                        .font(.title)
-                }
-                .padding()
-                
-                .frame(maxWidth: .infinity)
-                .background(Color(hex: "#1eacfa"))
                 ScrollView{
                 HStack{
                     Image("HomepageBg")
@@ -39,9 +31,9 @@ struct HomeView: View {
                     .padding(.horizontal)
 
                 }
-                .padding(.top,-20)
                 
-                Spacer()
+                .ignoresSafeArea(edges: .top)
+                
             }
         }
     }

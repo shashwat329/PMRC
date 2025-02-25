@@ -23,7 +23,6 @@ struct ContactSupportView: View {
                         TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
                 }
-                
                 Section(header: Text("Enter Your message")) {
                     TextEditor(text: $supportMsg)
                         .frame(height: 150)
@@ -66,6 +65,7 @@ struct ContactSupportView: View {
 
 
 #Preview {
-    ContactSupportView()
+   
+        ContactSupportView()
         
 }

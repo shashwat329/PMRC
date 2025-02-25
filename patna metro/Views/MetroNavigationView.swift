@@ -20,6 +20,9 @@ struct MetroNavigationView: View {
     
     var body: some View {
         VStack(spacing: 20) {
+            Text("Find Your Route")
+                .font(.largeTitle)
+                .foregroundStyle(Color(hex: "#1eacfa"))
             VStack(spacing: 15) {
                 SearchableTextField(
                     title: "Select Source", text: $source, options: stations,
@@ -31,6 +34,7 @@ struct MetroNavigationView: View {
                     showDropdown: $showDropdown2, otherDropdown: $showDropdown1
                 )
             }
+            
             
             Button(action: {
                 if let foundRoute = metro.findShortestPath(from: source, to: destination) {
@@ -56,9 +60,9 @@ struct MetroNavigationView: View {
         .padding()
         Spacer()
             .fullScreenCover(isPresented: $showRouteView) {
-            RouteDetailView(source: $source, destination: $destination, route: $route, showRouteView: $showRouteView)
+                RouteDetailView(source: $source, destination: $destination, route: $route, showRouteView: $showRouteView)
                 
-        }
+            }
     }
 }
 
@@ -80,15 +84,21 @@ struct SearchableTextField: View {
     
     var body: some View {
         VStack {
-            TextField(title, text: $text, onEditingChanged: { isEditing in
-                if isEditing {
-                    showDropdown = true
-                    otherDropdown = false
-                }
-            })
-            .padding()
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(10)
+            ZStack{
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(lineWidth: 3)
+                    .fill(Color.gray)
+                    .frame(maxWidth: .infinity,maxHeight: 55)
+                TextField(title, text: $text, onEditingChanged: { isEditing in
+                    if isEditing {
+                        showDropdown = true
+                        otherDropdown = false
+                    }
+                })
+                .padding()
+                .background(Color.gray.opacity(0.2))
+                .cornerRadius(10)
+            }
             
             if showDropdown {
                 ScrollView {
@@ -105,7 +115,7 @@ struct SearchableTextField: View {
                     }
                 }
                 .frame(height: 150)
-                
+                .background(.gray.opacity(0.2))
                 .cornerRadius(10)
                 .shadow(radius: 5)
             }
@@ -192,6 +202,8 @@ struct RouteDetailView: View {
 //MarkDown #Preview
 
 #Preview{
-//    MetroNavigationView()
-    RouteDetailView(source: .constant("abc"), destination: .constant("xyz"), route: .constant(["23","2ss","Ramkrishna Nagar","patna zoo","patna college"]), showRouteView: .constant(true) )
+    MetroNavigationView()
+//    RouteDetailView(source: .constant("abc"), destination: .constant("xyz"), route: .constant(["23","2ss","Ramkrishna Nagar","patna zoo","patna college"]), showRouteView: .constant(true) )
+//    SearchableTextField(title: "Enter textfield", text: .constant("this is text"), options: ["option1","option2","option3","option4","option5"], showDropdown: .constant(true), otherDropdown: .constant(false))
+
 }

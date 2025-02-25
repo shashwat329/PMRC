@@ -8,34 +8,64 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab = 0
+    
     var body: some View {
-        VStack {
-            TabView(){
-                HomeView()
-                    .tabItem{
-                        Label("Home",systemImage:"house.fill")
+        ZStack {
+            Color("BgColor")
+            NavigationStack {
+                VStack {
+                    TabView(selection: $selectedTab) {
+                        HomeView()
+                            .tabItem {
+                                Label("Home", systemImage: "house.fill")
+                            }
+                            .tag(0)
+                        
+                        TransactionView()
+                            .tabItem {
+                                Label("Top Up", systemImage: "indianrupeesign.square.fill")
+                            }
+                            .tag(1)
+                        
+                        ContactSupportView()
+                            .tabItem {
+                                Label("Support", systemImage: "questionmark.app.fill")
+                            }
+                            .tag(2)
+                        
+                        AccountView()
+                            .tabItem {
+                                Label("Account", systemImage: "person.fill")
+                            }
+                            .tag(3)
                     }
-                
-                TransactionView()
-                    .tabItem{
-                        Label("top up",systemImage: "indianrupeesign.square.fill")
+                    .accentColor(Color(hex: "#1eacfa"))
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Text(getTitle(for: selectedTab)) // Dynamic Title
+                                .font(.headline)
+                        }
                     }
-                
-                ContactSupportView()
-                
-                    .tabItem{
-                        Label("Support", systemImage: "questionmark.app.fill")
-                    }
-                AccountView()
-                    .tabItem{
-                        Label("Account",systemImage: "person.fill")
-                    }
+                }
+               
             }
-            .accentColor(Color(hex: "#1eacfa"))
+            .background(Color("BgColor"))
+        }
+    }
+    
+    func getTitle(for tab: Int) -> String {
+        switch tab {
+        case 0: return "Patna metro"
+        case 1: return "Ticket"
+        case 2: return "Contact & Support"
+        case 3: return "Account"
+        default: return ""
         }
     }
 }
 
 #Preview {
+    
     ContentView()
 }
