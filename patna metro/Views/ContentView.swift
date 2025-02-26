@@ -50,7 +50,6 @@ struct ContentView: View {
                 }
                
             }
-            .background(Color("BgColor"))
         }
     }
     
