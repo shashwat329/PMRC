@@ -26,7 +26,9 @@ struct HomeView: View {
                         }
                 }
                     ForEach(MenuItems,id: \.self){ item in
-                        HomeViewRow(mainLine: item.mainLine, secondLine: item.secondLine,moduleID: item.moduleID)
+                        HomeViewRow(mainLine: item.mainLine, secondLine: item.secondLine,moduleID: item.moduleID, imageurl: item.imageurl)
+//                            .border()
+                            .shadow(radius: 2)
                     }
                     .padding(.horizontal)
 

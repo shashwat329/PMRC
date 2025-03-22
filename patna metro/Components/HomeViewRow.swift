@@ -11,6 +11,7 @@ struct HomeViewRow: View {
      let mainLine: String
      let secondLine: String
      let moduleID: Int
+    let imageurl: String
     var body: some View {
         NavigationLink(destination: destinationView) {
             HStack {
@@ -26,9 +27,12 @@ struct HomeViewRow: View {
                 
                 Spacer()
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(hex: "#1eacfa"))
+                Image(imageurl)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 150, height: 100)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+//                    .border(.yellow) 
             }
             .padding()
             .background(Color(.systemBackground))
@@ -43,7 +47,7 @@ struct HomeViewRow: View {
             case 0:
                 MetroNavigationView()
             case 1:
-                MetroNavigationView()
+                MapView()
             case 2:
                 MetroNavigationView()
             case 3:
@@ -54,5 +58,5 @@ struct HomeViewRow: View {
     }
 }
 #Preview {
-    HomeViewRow(mainLine: "Find your route",secondLine: "Start, end and time",moduleID: 0)
+    HomeViewRow(mainLine: "Find your route",secondLine: "Start, end and time",moduleID: 0, imageurl: "ticketimg")
 }

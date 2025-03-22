@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct MapView: View {
+    @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.white
+                .ignoresSafeArea(.all)
+                    Image("PatnaMetroRoute")
+                        .resizable()
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged { value in
+                                    scale = lastScale * value
+                                            }
+                                .onEnded { _ in
+                                                lastScale = scale
+                                            }
+                                    )
+                                    .animation(.easeInOut, value: scale)
+                
+        }
     }
 }
 
