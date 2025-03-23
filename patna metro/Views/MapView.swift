@@ -14,20 +14,35 @@ struct MapView: View {
         ZStack{
             Color.white
                 .ignoresSafeArea(.all)
-                    Image("PatnaMetroRoute")
-                        .resizable()
-                        .gesture(
-                            MagnificationGesture()
-                                .onChanged { value in
-                                    scale = lastScale * value
-                                            }
-                                .onEnded { _ in
-                                                lastScale = scale
-                                            }
-                                    )
-                                    .animation(.easeInOut, value: scale)
-                
+            ScrollView([.horizontal, .vertical]) {
+                Image("PatnaMetroRoute")
+                    .resizable()
+                    .scaledToFit()
+                    .scaleEffect(scale)
+                    .gesture(
+                        MagnificationGesture()
+                            .onChanged { value in
+                                let newScale = lastScale * value
+                                scale = min(max(newScale, 0.3), 6.0)
+                            }
+                            .onEnded { _ in
+                                lastScale = scale
+                            }
+                    )
+                    .animation(.easeInOut(duration: 0.2), value: scale)
+                    .onTapGesture (count: 2){
+                        if scale < 2.0{
+                            scale = 2.0
+                        }
+                        else{
+                            scale = 1.0
+                        }
+                        lastScale = scale
+                    }
+                    .animation(.easeInOut(duration: 0.2), value: scale)
+            }
         }
+        .ignoresSafeArea(.all)
     }
 }
 
