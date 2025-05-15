@@ -22,7 +22,8 @@ struct ContentView: View {
                             }
                             .tag(0)
                         
-                        TransactionView()
+//                        TransactionView()
+                        animatedLaunchScreen()
                             .tabItem {
                                 Label("Top Up", systemImage: "indianrupeesign.square.fill")
                             }
