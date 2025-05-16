@@ -55,7 +55,7 @@ struct AccountView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.white)
                                     .padding()
-                                    .background(Color(hex: "#FFB6C1").opacity(0.27))
+                                    .background(.blue.opacity(0.8))
                                     .cornerRadius(10)
                                     .transition(.move(edge: .bottom).combined(with: .opacity))
                             }

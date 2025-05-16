@@ -9,12 +9,20 @@ import SwiftUI
 
 @main
 struct patna_metroApp: App {
-    init(){
-        Thread.sleep(forTimeInterval: 2)
-    }
+    @State var isactive: Bool = true
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isactive{
+                animatedLaunchScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.isactive = false
+                        }
+                    }
+            }
+            else{
+                ContentView()
+            }
         }
     }
 }

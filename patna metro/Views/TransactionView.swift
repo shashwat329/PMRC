@@ -10,10 +10,7 @@ import SwiftUI
 struct TransactionView: View {
     var body: some View {
         VStack {
-            RoundedRectangle(cornerRadius: 0)
-                .fill(Color.blue)
-                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 100)
-            Spacer()
+            Text("yet to be done")
         }
         .ignoresSafeArea(edges: .top)
     }
