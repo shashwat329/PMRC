@@ -144,7 +144,7 @@ struct RouteDetailView: View {
                     }
                     Text("Route Details")
                         .font(.largeTitle.bold())
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(hex: "#1eacfa"))
                     Spacer()
                    
                 }
@@ -158,7 +158,7 @@ struct RouteDetailView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.blue.opacity(0.1))
+                .background(Color(hex: "#1eacfa"))
                 .cornerRadius(10)
                 .padding(.horizontal)
                 
@@ -172,12 +172,16 @@ struct RouteDetailView: View {
                                         .frame(width: 50, height: 50)
                                         .overlay{
                                             Text("\(count)")
+                                                
                                         }
                                 }
                                 VStack{
                                     Text(station)
                                         .font(.headline)
                                     
+                                }
+                                .onAppear{
+                                    count += 1
                                 }
                             }
                         }.padding(.horizontal)
