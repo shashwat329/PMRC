@@ -71,7 +71,6 @@
 			name = "patna metro";
 			packageProductDependencies = (
 				6BE62ADF2DD650F300DAC821 /* Lottie */,
-				6BE62AE12DD650F300DAC821 /* Lottie-Dynamic */,
 			);
 			productName = "patna metro";
 			productReference = 6B5C69DB2D0845750033AC88 /* patna metro.app */;
@@ -371,11 +370,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6BE62ADE2DD650F300DAC821 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		6BE62AE12DD650F300DAC821 /* Lottie-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6BE62ADE2DD650F300DAC821 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = "Lottie-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

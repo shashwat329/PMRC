@@ -128,7 +128,7 @@ struct RouteDetailView: View {
     @Binding var destination: String
     @Binding var route: [String]
     @Binding var showRouteView: Bool
-    @State private var count: Int = 1
+    @State private var count: Int = 0
     var interchangeCount: Int {
         route.filter { $0 == "Patna Junction" || $0 == "Khemni Chak" }.count
     }
@@ -165,6 +165,9 @@ struct RouteDetailView: View {
                 ScrollView{
                     VStack(alignment: .leading) {
                         ForEach(route, id: \.self) { station in
+//                            if count < route.count {
+//                                let count = count+=1;
+//                            }
                             HStack {
                                 VStack {
                                     RoundedRectangle(cornerRadius: 5)
@@ -179,9 +182,6 @@ struct RouteDetailView: View {
                                     Text(station)
                                         .font(.headline)
                                     
-                                }
-                                .onAppear{
-                                    count += 1
                                 }
                             }
                         }.padding(.horizontal)
