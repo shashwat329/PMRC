@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct patna_metroApp: App {
+    @AppStorage("isOnBoardingCompleted") var isOnBoardingCompleted: Bool = false
     @State var isactive: Bool = true
     var body: some Scene {
         WindowGroup {
@@ -21,7 +22,12 @@ struct patna_metroApp: App {
                     }
             }
             else{
-                ContentView()
+                if isOnBoardingCompleted{
+                    ContentView()
+                }
+                else {
+                    OnboardScreen()
+                }
             }
         }
     }

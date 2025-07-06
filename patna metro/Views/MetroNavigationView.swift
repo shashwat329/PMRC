@@ -45,6 +45,7 @@ struct MetroNavigationView: View {
                 else {
                     route = ["No route found"]
                 }
+                
             }) {
                 Text("Find Route")
                     .font(.title2.bold())
@@ -136,7 +137,14 @@ struct RouteDetailView: View {
         VStack {
                 HStack {
 
-                    Button(action: { showRouteView = false }) {
+                    Button(
+                        action: {
+                            showRouteView = false
+                            source = ""
+                            destination = ""
+                        }
+                       
+                    ) {
                         Image(systemName: "xmark")
                             .font(.title)
                             .foregroundColor(.blue)
@@ -164,27 +172,26 @@ struct RouteDetailView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading) {
-                        ForEach(route, id: \.self) { station in
-//                            if count < route.count {
-//                                let count = count+=1;
-//                            }
+                        ForEach(Array(route.enumerated()), id: \.offset) { index, station in
                             HStack {
                                 VStack {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(Color.blue)
                                         .frame(width: 50, height: 50)
-                                        .overlay{
-                                            Text("\(count)")
-                                                
+                                        .overlay {
+                                            Text("\(index + 1)")
+                                                .foregroundColor(.white)
                                         }
                                 }
-                                VStack{
+                                VStack {
                                     Text(station)
                                         .font(.headline)
-                                    
                                 }
                             }
-                        }.padding(.horizontal)
+//                            .frame(minWidth: .infinity)
+                        }
+
+                        .padding(.horizontal)
                             
                         
                     }.padding(.vertical)
@@ -194,6 +201,7 @@ struct RouteDetailView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
                 .padding()
+                .scrollIndicators(.hidden)
             }
         
         .padding()
