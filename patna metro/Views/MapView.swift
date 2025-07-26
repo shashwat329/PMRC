@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MapView: View {
-    @State private var scale: CGFloat = 1.0
+    @State private var scale: CGFloat = 0.5
     @State private var lastScale: CGFloat = 1.0
     var body: some View {
         ZStack{

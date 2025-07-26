@@ -62,7 +62,7 @@ struct AccountView: View {
                             
                         }
                     }
-                VStack{
+                VStack(alignment: .leading){
                     Text("Name: \(name)")
                     Text("Email: \(name)@gmail.com")
                 }
