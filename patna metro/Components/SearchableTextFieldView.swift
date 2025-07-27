@@ -9,28 +9,80 @@ import SwiftUI
 
 struct SearchableTextFieldView: View {
     @State private var text: String = ""
-    @State var placeholder: String
-    @State private var showdropDown: Bool = false
+    @State private var showDropDown: Bool = false
+    @FocusState private var isFocused: Bool
+    var placeholder: String
+    let allStation: [String] = [
+        "Danapur Cantonment", "Saguna More", "RPS More", "Patliputra", "Rukanpura",
+        "Raja Bazar", "Patna Zoo", "Vikas Bhawan", "Vidyut Bhawan", "Patna Junction",
+        "Mithapur", "Ramkrishna Nagar", "Jaganpur", "Khemni Chak", "Akashvani",
+        "Gandhi Maidan", "PMCH", "Patna University", "Moin Ul Haq Stadium", "Rajendra Nagar",
+        "Malahi Pakri", "Bhoothnath", "Zero Mile", "New ISBT"
+    ]
+    
+    var filteredStation: [String] {
+        if text.isEmpty { return [] }
+        return allStation.filter { $0.localizedCaseInsensitiveContains(text) }
+    }
+
     var body: some View {
-        VStack {
-            ZStack{
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(lineWidth: 3)
-                    .fill(Color.gray)
-                    .frame(maxWidth: .infinity,maxHeight: 55)
-                TextField(placeholder, text: $text, onEditingChanged: { isEditing in
-                    if isEditing {
-                        showdropDown = true
+        VStack(alignment: .leading, spacing: 4) {
+            HStack{
+                TextField(placeholder, text: $text)
+                    .focused($isFocused)
+                    .padding()
+                    .background(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.primaryColorTheme, lineWidth: 2))
+                    .background(Color.gray.opacity(0.1))
+                    .onChange(of: text) {
+                        showDropDown = !filteredStation.isEmpty
                     }
-                })
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
+                if !text.isEmpty{
+                    Button {
+                        text = ""
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(Color.gray)
+                    }
+
+                }
+            }
+
+            if showDropDown {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        if filteredStation.isEmpty {
+                            Text("No results found")
+                                .foregroundColor(.red)
+                                .padding()
+                        } else {
+                            ForEach(filteredStation, id: \.self) { station in
+                                Text(station)
+                                    .padding()
+                                    .onTapGesture {
+                                        text = station
+                                        showDropDown = false
+                                        isFocused = false
+                                    }
+                                Divider()
+                            }
+                        }
+                    }
+                }
+                .frame(height:CGFloat(filteredStation.count) * 50)
+                .background(RoundedRectangle(cornerRadius: 12).fill(Color(.systemGray6)))
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.gray.opacity(0.4)))
+                .padding(.trailing,20)
+            }
+        }
+        .padding()
+        .onTapGesture {
+            if !isFocused {
+                showDropDown = false
             }
         }
     }
 }
 
 #Preview {
-    SearchableTextFieldView(placeholder: "enter your name")
+    SearchableTextFieldView(placeholder: "Enter Station Name")
 }

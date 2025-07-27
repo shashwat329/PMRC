@@ -75,7 +75,7 @@ struct SearchableTextField: View {
     @Binding var showDropdown: Bool
     @Binding var otherDropdown: Bool
     
-    var filteredOptions: [String] {
+     var filteredOptions: [String] {
         if text.isEmpty {
             return options
         } else {
@@ -88,7 +88,7 @@ struct SearchableTextField: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(lineWidth: 3)
-                    .fill(Color.gray)
+                    .fill(Color.primaryColorTheme)
                     .frame(maxWidth: .infinity,maxHeight: 55)
                 TextField(title, text: $text, onEditingChanged: { isEditing in
                     if isEditing {
@@ -97,7 +97,7 @@ struct SearchableTextField: View {
                     }
                 })
                 .padding()
-                .background(Color.gray.opacity(0.2))
+                .background(Color.gray.opacity(0.1))
                 .cornerRadius(10)
             }
             
@@ -134,65 +134,74 @@ struct RouteDetailView: View {
         route.filter { $0 == "Patna Junction" || $0 == "Khemni Chak" }.count
     }
     var body: some View {
-        VStack {
-                HStack {
-
-                    Button(
-                        action: {
-                            showRouteView = false
-                            source = ""
-                            destination = ""
+        VStack{
+                VStack(alignment: .leading) {
+                    HStack {
+                        Button(
+                            action: {
+                                showRouteView = false
+                                source = ""
+                                destination = ""
+                            }
+                           
+                        ) {
+                            Image(systemName: "xmark")
+                                .font(.largeTitle)
+                                .foregroundColor(.black)
+                                .padding(.horizontal)
                         }
+                        Text("Route Details")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.white)
+                        Spacer()
                        
-                    ) {
-                        Image(systemName: "xmark")
-                            .font(.title)
-                            .foregroundColor(.blue)
-                            .padding(.horizontal)
                     }
-                    Text("Route Details")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(Color(hex: "#1eacfa"))
-                    Spacer()
-                   
-                }
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Source: \(source)")
-                        .font(.headline)
-                    Text("Destination: \(destination)")
-                        .font(.headline)
-                    Text("Number of Interchanges: \(interchangeCount)")
-                        .font(.headline)
+                    .padding(.top,35)
+                    HStack{
+                        RouteinfoView(backgroundColr: false, imageName: "mappin.and.ellipse", title: source, info: "")
+                        Image(systemName: "arrow.right")
+                        RouteinfoView(backgroundColr: false ,imageName: "mappin.and.ellipse", title: destination, info: "")
+                    }
+                    HStack{
+                        RouteinfoView(backgroundColr: true ,imageName: "indianrupeesign", title: "Rupees", info: "0")
+                        RouteinfoView(backgroundColr: true,imageName: "clock", title: "Mins", info: "0")
+                    }
+                    HStack{
+                        RouteinfoView(backgroundColr: true,imageName: "map", title: "station", info: "\(route.count)")
+                        RouteinfoView(backgroundColr: true,imageName: "arrow.up.arrow.down", title: "Line change", info: "\(interchangeCount)")
+                       
+                    }
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color(hex: "#1eacfa"))
                 .cornerRadius(10)
-                .padding(.horizontal)
-                
+                .font(.subheadline)
                 ScrollView{
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading,spacing: 0) {
                         ForEach(Array(route.enumerated()), id: \.offset) { index, station in
-                            HStack {
-                                VStack {
+                            VStack(alignment: .leading,spacing: 0){
+                                HStack {
                                     RoundedRectangle(cornerRadius: 5)
-                                        .fill(Color.blue)
+                                        .fill(Color(hex: "#1eacfa"))
                                         .frame(width: 50, height: 50)
                                         .overlay {
                                             Text("\(index + 1)")
                                                 .foregroundColor(.white)
                                         }
-                                }
-                                VStack {
                                     Text(station)
                                         .font(.headline)
                                 }
+                                .padding(.horizontal)
+                                if (index + 1 < route.count){
+                                    Image("1")
+                                        .resizable()
+                                        .frame(width: 25, height: 40)
+                                        .padding(.horizontal,26)
+                                }
+                                    
                             }
-//                            .frame(minWidth: .infinity)
                         }
-
-                        .padding(.horizontal)
-                            
                         
                     }.padding(.vertical)
                 }
@@ -200,22 +209,42 @@ struct RouteDetailView: View {
                 .frame(maxWidth: .infinity, minHeight: 200,alignment: .leading)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-                .padding()
                 .scrollIndicators(.hidden)
             }
-        
-        .padding()
-        Spacer()
+        .ignoresSafeArea(.all)
     }
    
 }
-
-
+struct RouteinfoView: View {
+    var backgroundColr: Bool
+    let imageName: String
+    let title: String
+    let info: String?
+    var body: some View {
+        HStack{
+            Image(systemName: imageName)
+            if let info  = info{
+                Text("\(info)")
+            }
+            Text(title)
+                .font(backgroundColr ? .caption : .headline)
+            
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(
+            backgroundColr ? AnyShapeStyle(.ultraThinMaterial) : AnyShapeStyle(.clear)
+        )
+        
+        
+    }
+}
 //MarkDown #Preview
 
 #Preview{
     MetroNavigationView()
-//    RouteDetailView(source: .constant("abc"), destination: .constant("xyz"), route: .constant(["23","2ss","Ramkrishna Nagar","patna zoo","patna college"]), showRouteView: .constant(true) )
+//    RouteDetailView(source: .constant("patna junction"), destination: .constant("Rajender Nagar"), route: .constant(["23","2ss","Ramkrishna Nagar","patna zoo","patna college"]), showRouteView: .constant(true) )
 //    SearchableTextField(title: "Enter textfield", text: .constant("this is text"), options: ["option1","option2","option3","option4","option5"], showDropdown: .constant(true), otherDropdown: .constant(false))
+//    RouteinfoView(backgroundColr: false, imageName: "indianrupeesign", title: "Rupees", info: "0")
 
 }

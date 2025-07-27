@@ -13,8 +13,16 @@ struct MenuItem:Hashable {
 }
 
 let MenuItems :[MenuItem] = [
-    MenuItem(mainLine: "Find your route", secondLine: "Start, end and time", moduleID: 0, imageurl: "routeimg"),
+    MenuItem(mainLine: "Route", secondLine: "Find your Route", moduleID: 0, imageurl: "routeimg"),
     MenuItem(mainLine: "Map", secondLine: "Check your route", moduleID: 1, imageurl: "mapimg"),
     MenuItem(mainLine: "Fare", secondLine: "Know your fare", moduleID: 2, imageurl: "ticketimg"),
-    MenuItem(mainLine: "Enquiry", secondLine: "Ask your Queires", moduleID: 3, imageurl: "queryimg")
+    MenuItem(mainLine: "Parking", secondLine: "Looking for parking", moduleID: 3, imageurl: "queryimg")
+]
+let menuSubItems: [MenuItem] = [
+    MenuItem(mainLine: "Share", secondLine: "Find your Route", moduleID: 4, imageurl: "routeimg"),
+    MenuItem(mainLine: "Rate Us", secondLine: "Find your Route", moduleID: 5, imageurl: "routeimg"),
+    MenuItem(mainLine: "About", secondLine: "Find your Route", moduleID: 6, imageurl: "routeimg"),
+    MenuItem(mainLine: "Disclaimer", secondLine: "Find your Route", moduleID: 7, imageurl: "routeimg"),
+    MenuItem(mainLine: "inforamtion", secondLine: "Find your Route", moduleID: 8, imageurl: "routeimg"),
+    MenuItem(mainLine: "Contact Us", secondLine: "Find your Route", moduleID: 9, imageurl: "routeimg"),
 ]

@@ -35,7 +35,7 @@ struct HomeViewRow: View {
 //                    .border(.yellow) 
             }
             .padding()
-            .background(Color(.systemBackground))
+            .background(.ultraThinMaterial)
             .cornerRadius(10)
             .shadow(radius: 2)
         }
@@ -53,7 +53,9 @@ struct HomeViewRow: View {
             case 2:
                 MetroNavigationView()
             case 3:
-                MetroNavigationView()
+                ParkingLotsView()
+            case 4:
+                EmptyView()
             default:
                 Text("Unknown View")
         }
