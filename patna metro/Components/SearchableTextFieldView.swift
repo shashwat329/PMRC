@@ -15,7 +15,7 @@ struct SearchableTextFieldView: View {
     let allStation: [String] = [
         "Danapur Cantonment", "Saguna More", "RPS More", "Patliputra", "Rukanpura",
         "Raja Bazar", "Patna Zoo", "Vikas Bhawan", "Vidyut Bhawan", "Patna Junction",
-        "Mithapur", "Ramkrishna Nagar", "Jaganpur", "Khemni Chak", "Akashvani",
+        "CNLU","Mithapur", "Ramkrishna Nagar", "Jaganpur", "Khemni Chak", "Akashvani",
         "Gandhi Maidan", "PMCH", "Patna University", "Moin Ul Haq Stadium", "Rajendra Nagar",
         "Malahi Pakri", "Bhoothnath", "Zero Mile", "New ISBT"
     ]

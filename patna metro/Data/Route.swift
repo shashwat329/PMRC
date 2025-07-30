@@ -24,14 +24,17 @@ class MetroNetwork {
                    "Vidyut Bhawan": MetroStation(name: "Vidyut Bhawan", corridors: ["East-West"], connections: ["Vikas Bhawan", "Patna Junction"]),
                    
                    // **Patna Junction as Interchange Station in Both Corridors**
-                   "Patna Junction": MetroStation(name: "Patna Junction", corridors: ["East-West", "North-South"], connections: ["Vidyut Bhawan", "Mithapur", "Akashvani"]),
+                   "Patna Junction": MetroStation(name: "Patna Junction",corridors: ["East-West", "North-South"],connections: ["Vidyut Bhawan", "CNLU", "Akashvani"]
+                   ),
                    
-                   "Mithapur": MetroStation(name: "Mithapur", corridors: ["East-West"], connections: ["Patna Junction", "Ramkrishna Nagar"]),
+                   "CNLU": MetroStation(name: "CNLU", corridors: ["East-West"], connections: ["Patna Junction", "Mithapur"]),
+                   "Mithapur": MetroStation(name: "Mithapur", corridors: ["East-West"], connections: [ "CNLU","Ramkrishna Nagar"]),
                    "Ramkrishna Nagar": MetroStation(name: "Ramkrishna Nagar", corridors: ["East-West"], connections: ["Mithapur", "Jaganpur"]),
                    "Jaganpur": MetroStation(name: "Jaganpur", corridors: ["East-West"], connections: ["Ramkrishna Nagar", "Khemni Chak"]),
                    
                    // **Khemni Chak as Another Interchange**
-                   "Khemni Chak": MetroStation(name: "Khemni Chak", corridors: ["East-West", "North-South"], connections: ["Jaganpur", "Malahi Pakri"]),
+                   "Khemni Chak": MetroStation(name: "Khemni Chak",corridors: ["East-West", "North-South"],connections: ["Jaganpur", "Malahi Pakri", "Rajendra Nagar", "Bhoothnath"]
+                   ),
 
                    // North-South Corridor
                    "Akashvani": MetroStation(name: "Akashvani", corridors: ["North-South"], connections: ["Patna Junction", "Gandhi Maidan"]),
@@ -39,9 +42,10 @@ class MetroNetwork {
                    "PMCH": MetroStation(name: "PMCH", corridors: ["North-South"], connections: ["Gandhi Maidan", "Patna University"]),
                    "Patna University": MetroStation(name: "Patna University", corridors: ["North-South"], connections: ["PMCH", "Moin Ul Haq Stadium"]),
                    "Moin Ul Haq Stadium": MetroStation(name: "Moin Ul Haq Stadium", corridors: ["North-South"], connections: ["Patna University", "Rajendra Nagar"]),
-                   "Rajendra Nagar": MetroStation(name: "Rajendra Nagar", corridors: ["North-South"], connections: ["Moin Ul Haq Stadium", "Malahi Pakri"]),
+                   "Rajendra Nagar": MetroStation(name: "Rajendra Nagar", corridors: ["North-South"], connections: ["Moin Ul Haq Stadium", "Malahi Pakri", "Khemni Chak"]),
                    "Malahi Pakri": MetroStation(name: "Malahi Pakri", corridors: ["North-South"], connections: ["Rajendra Nagar", "Khemni Chak"]),
                    "Bhoothnath": MetroStation(name: "Bhoothnath", corridors: ["North-South"], connections: ["Khemni Chak", "Zero Mile"]),
+
                    "Zero Mile": MetroStation(name: "Zero Mile", corridors: ["North-South"], connections: ["Bhoothnath", "New ISBT"]),
                    "New ISBT": MetroStation(name: "New ISBT", corridors: ["North-South"], connections: ["Zero Mile"])
         ]
@@ -56,13 +60,9 @@ class MetroNetwork {
 
           while !queue.isEmpty {
               let (currentStation, path) = queue.removeFirst()
-
-              // ✅ If the destination is found, return the path
               if currentStation == destination {
                   return path
               }
-
-              // 🔄 Explore connected stations
               for next in stations[currentStation]?.connections ?? [] {
                   if !visited.contains(next) {
                       visited.insert(next)
