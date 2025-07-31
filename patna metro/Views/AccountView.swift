@@ -9,71 +9,55 @@ import SwiftUI
 
 struct AccountView: View {
     @State private var name: String = "Kumar Shashwat"
-    private var cardnumber: String = "12133224224";
+    private var cardNumber: String = "1213 3224 2242"
     @State private var showToast = false
+
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color("BgColor")
-                .ignoresSafeArea(.all)
-            VStack(alignment: .leading){
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(hex: "#1eacfa"))
-                    .frame(width: 350,height: 216)
-                    .overlay{
-                        VStack{
-                            Text("Kumar shashwat".capitalized)
-                                .font(.headline)
-                                .foregroundColor(Color.white)
-                            HStack{
-                                Text("\(cardnumber)")
-                                    .font(.largeTitle)
-                                    .padding(.leading,20)
-                                Button {
-                                    UIPasteboard.general.string = cardnumber
-                                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                                    withAnimation {
-                                        showToast = true
-                                    }
-                                    
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                        withAnimation {
-                                            showToast = false
-                                        }
-                                    }
-                                    
-                                    
-                                } label: {
-                                    Image(systemName: "clipboard")
-                                        .padding()
-                                        .foregroundColor(.white)
-                                        .cornerRadius(8)
-                                }
-                                
-                            }
-                            if showToast {
-                                Text("Copied to clipboard!")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(.blue.opacity(0.8))
-                                    .cornerRadius(10)
-                                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                            }
-                            
+                .ignoresSafeArea()
+            ScrollView{
+                VStack() {
+                    MetroCardView()
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Image(systemName: "person.fill")
+                                .foregroundColor(.blue)
+                            Text("Name:")
+                                .fontWeight(.semibold)
+                            Text(name)
+                        }
+                        
+                        HStack {
+                            Image(systemName: "envelope.fill")
+                                .foregroundColor(.blue)
+                            Text("Email:")
+                                .fontWeight(.semibold)
+                            Text("\(name.lowercased().replacingOccurrences(of: " ", with: ""))@gmail.com")
                         }
                     }
-                VStack(alignment: .leading){
-                    Text("Name: \(name)")
-                    Text("Email: \(name)@gmail.com")
+                    .font(.body)
+                    .padding()
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                    .padding(.horizontal)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
-                
-                Spacer()
+                .padding(.top, 60)
             }
+            .navigationTitle("Account")
         }
     }
 }
 
+
+
 #Preview {
-    AccountView()
+//    MetroCardView()
+    NavigationStack{
+        AccountView()
+    }
+    
 }

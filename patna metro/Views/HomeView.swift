@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    let columns = [
+          GridItem(.flexible()),
+          GridItem(.flexible()),
+          GridItem(.flexible())
+      ]
     var body: some View {
         ZStack{
             VStack{
@@ -32,23 +37,27 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     ForEach(MenuItems,id: \.self){ item in
-                        HomeViewRow(mainLine: item.mainLine, secondLine: item.secondLine,moduleID: item.moduleID, imageurl: item.imageurl)
+                        HomeViewRow(mainLine: item.mainLine, secondLine: item.secondLine ,moduleID: item.moduleID, imageurl: item.imageurl)
                            
                             .shadow(radius: 2)
                     }
                     .padding(.horizontal)
                     HStack{
-                        Text("main")
+                        Text("menuSubItems")
                         .font(.title)
                         .bold()
                         Spacer()
                     }
                     .padding(.horizontal)
-                    ForEach(MenuItems,id: \.self){ item in
-                        HomeSubView(mainLine: item.mainLine, secondLine: item.secondLine,moduleID: item.moduleID, imageurl: item.imageurl)
-                           
-                            .shadow(radius: 2)
+                    LazyVGrid(columns: columns) {
+                        ForEach(menuSubItems, id: \.self) { item in
+                            VStack{
+                                SubModuleView(image: item.imageurl, moduleID: item.moduleID, text: item.mainLine)
+                                Text(item.mainLine)
+                            }
+                        }
                     }
+
                     .padding(.horizontal)
 
                     
@@ -59,6 +68,7 @@ struct HomeView: View {
             }
         }
     }
+    
 }
 
 #Preview {

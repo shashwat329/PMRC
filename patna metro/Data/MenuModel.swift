@@ -19,10 +19,10 @@ let MenuItems :[MenuItem] = [
     MenuItem(mainLine: "Parking", secondLine: "Looking for parking", moduleID: 3, imageurl: "queryimg")
 ]
 let menuSubItems: [MenuItem] = [
-    MenuItem(mainLine: "Share", secondLine: "Find your Route", moduleID: 4, imageurl: "routeimg"),
-    MenuItem(mainLine: "Rate Us", secondLine: "Find your Route", moduleID: 5, imageurl: "routeimg"),
-    MenuItem(mainLine: "About", secondLine: "Find your Route", moduleID: 6, imageurl: "routeimg"),
-    MenuItem(mainLine: "Disclaimer", secondLine: "Find your Route", moduleID: 7, imageurl: "routeimg"),
-    MenuItem(mainLine: "inforamtion", secondLine: "Find your Route", moduleID: 8, imageurl: "routeimg"),
-    MenuItem(mainLine: "Contact Us", secondLine: "Find your Route", moduleID: 9, imageurl: "routeimg"),
+    MenuItem(mainLine: "Share", secondLine: "", moduleID: 4, imageurl: "share"),
+    MenuItem(mainLine: "Rate Us", secondLine: "", moduleID: 5, imageurl: "rateus"),
+    MenuItem(mainLine: "About Us", secondLine: "", moduleID: 6, imageurl: "aboutUs"),
+    MenuItem(mainLine: "Disclaimer", secondLine: "", moduleID: 7, imageurl: "disclaimer"),
+    MenuItem(mainLine: "inforamtion", secondLine: "", moduleID: 8, imageurl: "info"),
+    MenuItem(mainLine: "Contact Us", secondLine: "", moduleID: 9, imageurl: "contactUs"),
 ]
