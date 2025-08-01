@@ -50,6 +50,7 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     LazyVGrid(columns: columns) {
+    
                         ForEach(menuSubItems, id: \.self) { item in
                             VStack{
                                 SubModuleView(image: item.imageurl, moduleID: item.moduleID, text: item.mainLine)

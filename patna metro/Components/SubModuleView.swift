@@ -18,7 +18,7 @@ struct SubModuleView: View {
             VStack{
                 Image(image)
                     .resizable()
-                    .frame(width: width ?? 50,height: height ?? 40)
+                    .frame(width: width ?? 50,height: height ?? 50)
             }
             .padding()
             .background(.ultraThinMaterial)
@@ -33,15 +33,15 @@ struct SubModuleView: View {
             case 4:
                 MetroNavigationView()
             case 5:
-                MapView()
+                RateUsView()
             case 6:
-                MetroNavigationView()
+                AboutUsView()
             case 7:
-                ParkingLotsView()
+                DisclaimerView()
             case 8:
-                ParkingLotsView()
+                PatnaMetroInfoView()
             case 9:
-                ParkingLotsView()
+                ContactUsView()
             case 10:
                 EmptyView()
             default:

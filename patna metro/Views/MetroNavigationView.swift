@@ -194,7 +194,7 @@ struct RouteDetailView: View {
                                 }
                                 .padding(.horizontal)
                                 if (index + 1 < route.count){
-                                    Image("1")
+                                    Image("RedLine")
                                         .resizable()
                                         .frame(width: 25, height: 40)
                                         .padding(.horizontal,26)

@@ -116,14 +116,18 @@ struct PatnaMetroInfoView: View {
 struct BlueLineView: View{
     var body: some View{
         VStack{
-            Text("this is blue line")
+            Image("BlueLineMap")
+                .resizable()
+                .frame(height: 300)
         }
     }
 }
 struct RedLineView: View{
     var body: some View{
         VStack{
-            Text("this is red line")
+            Image("RedLineMap")
+                .resizable()
+                .frame(height: 300)
         }
     }
 }
