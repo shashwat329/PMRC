@@ -9,10 +9,8 @@ import SwiftUI
 
 struct TransactionView: View {
     var body: some View {
-        VStack {
-            Text("yet to be done")
-        }
-        .ignoresSafeArea(edges: .top)
+        ComingSoonView()
+            .ignoresSafeArea()
     }
 }
 

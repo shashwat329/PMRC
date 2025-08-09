@@ -13,7 +13,7 @@ struct SearchableTextFieldView: View {
     @FocusState private var isFocused: Bool
     var placeholder: String
     let allStation: [String] = [
-        "Danapur Cantonment", "Saguna More", "RPS More", "Patliputra", "Rukanpura",
+        "Danapur Cantonment", "Saguna Mor", "RPS Mor", "Patliputra", "Rukanpura",
         "Raja Bazar", "Patna Zoo", "Vikas Bhawan", "Vidyut Bhawan", "Patna Junction",
         "CNLU","Mithapur", "Ramkrishna Nagar", "Jaganpur", "Khemni Chak", "Akashvani",
         "Gandhi Maidan", "PMCH", "Patna University", "Moin Ul Haq Stadium", "Rajendra Nagar",

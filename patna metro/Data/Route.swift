@@ -13,10 +13,10 @@ struct MetroStation {
 class MetroNetwork {
         var stations: [String: MetroStation] = [
                    // East-West Corridor
-                   "Danapur Cantonment": MetroStation(name: "Danapur Cantonment", corridors: ["East-West"], connections: ["Saguna More"]),
-                   "Saguna More": MetroStation(name: "Saguna More", corridors: ["East-West"], connections: ["Danapur Cantonment", "RPS More"]),
-                   "RPS More": MetroStation(name: "RPS More", corridors: ["East-West"], connections: ["Saguna More", "Patliputra"]),
-                   "Patliputra": MetroStation(name: "Patliputra", corridors: ["East-West"], connections: ["RPS More", "Rukanpura"]),
+                   "Danapur Cantonment": MetroStation(name: "Danapur Cantonment", corridors: ["East-West"], connections: ["Saguna Mor"]),
+                   "Saguna Mor": MetroStation(name: "Saguna Mor", corridors: ["East-West"], connections: ["Danapur Cantonment", "RPS Mor"]),
+                   "RPS Mor": MetroStation(name: "RPS Mor", corridors: ["East-West"], connections: ["Saguna Mor", "Patliputra"]),
+                   "Patliputra": MetroStation(name: "Patliputra", corridors: ["East-West"], connections: ["RPS Mor", "Rukanpura"]),
                    "Rukanpura": MetroStation(name: "Rukanpura", corridors: ["East-West"], connections: ["Patliputra", "Raja Bazar"]),
                    "Raja Bazar": MetroStation(name: "Raja Bazar", corridors: ["East-West"], connections: ["Rukanpura", "Patna Zoo"]),
                    "Patna Zoo": MetroStation(name: "Patna Zoo", corridors: ["East-West"], connections: ["Raja Bazar", "Vikas Bhawan"]),

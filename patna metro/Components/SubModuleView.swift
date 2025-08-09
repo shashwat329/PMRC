@@ -30,8 +30,6 @@ struct SubModuleView: View {
     @ViewBuilder
     private var destinationView: some View {
         switch moduleID {
-            case 4:
-                MetroNavigationView()
             case 5:
                 RateUsView()
             case 6:

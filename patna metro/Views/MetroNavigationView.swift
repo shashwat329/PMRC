@@ -11,7 +11,7 @@ struct MetroNavigationView: View {
     
     let metro = MetroNetwork()
     let stations: [String] = [
-        "Danapur Cantonment", "Saguna More", "RPS More", "Patliputra", "Rukanpura",
+        "Danapur Cantonment", "Saguna Mor", "RPS Mor", "Patliputra", "Rukanpura",
         "Raja Bazar", "Patna Zoo", "Vikas Bhawan", "Vidyut Bhawan", "Patna Junction",
         "CNLU","Mithapur", "Ramkrishna Nagar", "Jaganpur", "Khemni Chak", "Akashvani",
         "Gandhi Maidan", "PMCH", "Patna University", "Moin Ul Haq Stadium", "Rajendra Nagar",

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RateUsView: View {
-    let themeColor = Color(hex: "1eacfa")
+    let themeColor = Color(.primaryColorTheme)
     @State private var selectedRating: Int = 0
     @State private var feedbackText: String = ""
     @State private var showThankYou: Bool = false
@@ -34,7 +34,6 @@ struct RateUsView: View {
     
     private var ratingView: some View {
         VStack(spacing: 30) {
-            // Header Section
             VStack(spacing: 16) {
                 ZStack {
                     Circle()

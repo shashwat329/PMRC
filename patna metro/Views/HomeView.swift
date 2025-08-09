@@ -23,16 +23,20 @@ struct HomeView: View {
                             .aspectRatio(CGFloat(6) / CGFloat(4), contentMode: .fit)
                             .overlay{
                                 Color.black.opacity(0.3)
-                                Text("welcome to Patna metro".capitalized)
-                                    .foregroundStyle(.white)
-                                    .font(.title)
-                                    .bold()
+                                VStack{
+                                    Text("welcome to Patna metro".capitalized)
+                                        .foregroundStyle(.white)
+                                        .font(.title)
+                                        .bold()
+                                    Text("Your journey made smarter")
+                                        .foregroundColor(.white.opacity(0.8))
+                                        .font(.subheadline)
+                                }
                             }
                     }
                     HStack{
-                        Text("main")
-                        .font(.title)
-                        .bold()
+                        Text("Main Feathers")
+                            .font(.title2.bold())
                         Spacer()
                     }
                     .padding(.horizontal)
@@ -43,9 +47,8 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     HStack{
-                        Text("menuSubItems")
-                        .font(.title)
-                        .bold()
+                        Text("Quick Actions")
+                            .font(.title2.bold())
                         Spacer()
                     }
                     .padding(.horizontal)
@@ -53,8 +56,30 @@ struct HomeView: View {
     
                         ForEach(menuSubItems, id: \.self) { item in
                             VStack{
-                                SubModuleView(image: item.imageurl, moduleID: item.moduleID, text: item.mainLine)
-                                Text(item.mainLine)
+                                if item.moduleID == 4 {
+                                    ShareLink(
+                                        item: URL(string: "https://shashwatt.in")!,
+                                        subject: Text("Check this out!"),
+                                        message: Text("Visit my portfolio site.")
+                                    ) {
+                                        VStack{
+                                            Image(item.imageurl)
+                                                .resizable()
+                                                .frame(width: 50,height: 50)
+                                           
+                                        }
+                                        .padding()
+                                        .background(.ultraThinMaterial)
+                                        .cornerRadius(20)
+                                        .shadow(radius: 20,x: 0,y: 1)
+                                    }
+                                    Text(item.mainLine)
+                                    
+                                }
+                                else{
+                                    SubModuleView(image: item.imageurl, moduleID: item.moduleID, text: item.mainLine)
+                                    Text(item.mainLine)
+                                }
                             }
                         }
                     }
